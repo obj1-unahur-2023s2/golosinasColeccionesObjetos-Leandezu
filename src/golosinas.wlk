@@ -1,3 +1,4 @@
+import mariano.*
 
 object bombon{
 	var peso = 15
@@ -46,7 +47,7 @@ object caramelo{
 }
 
 object chupetin{
-	var peso = 2
+	var peso = 3
 	var gusto = "naranja"
 	var tieneGluten = false
 	
@@ -56,9 +57,7 @@ object chupetin{
 	method tieneGluten() = tieneGluten
 	
 	method darMordisco(){
-		if(peso > 2){
-			peso = peso - (peso * 0.1)
-		}
+		peso = 2.max(peso - (peso * 0.1))
 	}
 }
 
