@@ -20,6 +20,14 @@ object mariano {
 	method preciosCuidados() = bolsa.all({ golosina => golosina.precio() <= 10})
 	method golosinaDeSabor(unSabor) = bolsa.find({ golosina => golosina.gusto() == unSabor})
 	method golosinasDeSabor(unSabor) = bolsa.filter({ golosina => golosina.gusto() == unSabor })
+	method sabores() = bolsa.map({g => g.gusto()}).asSet()
+	method gustosFaltantes(todosLosSabores){
+		return todosLosSabores.asSet().difference(self.sabores())
+	}
+	method golosinaMasCara(){
+		return bolsa.max({g => g.precio()})
+	}
+	
 }
 
 
